@@ -10,7 +10,7 @@ public class LoginTest {
 	public KeywordEngine KeyWordEngine;
 	
 	@Test
-	public void lognTest() {
+	public void loginTest() {
 		
 		KeyWordEngine = new KeywordEngine();
 		KeyWordEngine.startExecution("login");

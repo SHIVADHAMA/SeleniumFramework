@@ -50,7 +50,7 @@ public class Base {
 	public Properties init_properties() {
 		prop=new Properties();
 		try {
-			FileInputStream ip= new FileInputStream("C:\\Users\\GANJIJ\\git\\SeleniumFramework\\SeleniumFramework\\src\\main\\java\\com\\EvaluATTR\\Config\\config.properties");
+			FileInputStream ip= new FileInputStream("C:\\Users\\THEJET\\git\\SeleniumFramework\\SeleniumFramework\\src\\main\\java\\com\\EvaluATTR\\Config\\config.properties");
 		prop.load(ip);
 		
 		} catch (FileNotFoundException e) {

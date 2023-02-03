@@ -27,7 +27,7 @@ public class KeywordEngine {
 	public Base base;
 	public WebElement element;
 
-	public final String SCENARIO_SHEET_PATH = "C:\\Users\\GANJIJ\\git\\SeleniumFramework\\SeleniumFramework\\src\\main\\java\\com\\EvaluATTR\\TestDataScenarios\\book.xlsx";
+	public final String SCENARIO_SHEET_PATH = "C:\\Users\\THEJET\\git\\SeleniumFramework\\SeleniumFramework\\src\\main\\java\\com\\EvaluATTR\\TestDataScenarios\\book.xlsx";
 
 
 	public void startExecution(String sheetName) {
@@ -88,7 +88,7 @@ public class KeywordEngine {
 
 				case "quit":
 					driver.quit();
-					System.out.println("application cllosed");
+					System.out.println("Application closed");
 					break;
 				default:
 					break;
@@ -135,7 +135,8 @@ public class KeywordEngine {
 						element.sendKeys(value);
 					} else if (action.equalsIgnoreCase("click")) {
 						element.click();
-						System.out.println("click performed");
+						System.out.println("Click Performed");
+						//Thread.sleep(1000);
 					} else if (action.equalsIgnoreCase("isDisplayed")) {
 						element.isDisplayed();
 					} else if (action.equalsIgnoreCase("getText")) {
