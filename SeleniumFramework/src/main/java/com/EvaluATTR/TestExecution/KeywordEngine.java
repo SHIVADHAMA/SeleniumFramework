@@ -27,7 +27,7 @@ public class KeywordEngine {
 	public Base base;
 	public WebElement element;
 
-	public final String SCENARIO_SHEET_PATH = "C:/Users/THEJET/git/SeleniumFramework/SeleniumFramework/src/main/java/com/EvaluATTR/TestDataScenarios/book.xlsx";
+	public final String SCENARIO_SHEET_PATH = "C:\\Users\\GANJIJ\\git\\SeleniumFramework\\SeleniumFramework\\src\\main\\java\\com\\EvaluATTR\\TestDataScenarios\\book.xlsx";
 
 
 	public void startExecution(String sheetName) {
@@ -48,24 +48,31 @@ public class KeywordEngine {
 		}
 
 		sheet = book.getSheet(sheetName);
+		System.out.println(sheetName);
 		int k = 0;
+		System.out.println(sheet.getLastRowNum());
 		for (int i = 0; i < sheet.getLastRowNum(); i++) {
 			try {
 
 				String locatorType = sheet.getRow(i + 1).getCell(k + 1).toString().trim();
+				
 				String locatorValue = sheet.getRow(i + 1).getCell(k + 2).toString().trim();
+				
 				String action = sheet.getRow(i + 1).getCell(k + 3).toString().trim();
+				
 				String value = sheet.getRow(i + 1).getCell(k + 4).toString().trim();
-
+				
 				switch (action) {
 				case "open browser":
 					base = new Base();
 					prop = base.init_properties();
 					if (value.isEmpty() || value.equals("NA")) {
 						driver = base.init_driver(prop.getProperty("browser"));
+						
 					} else {
 						driver = base.init_driver(value);
 					}
+					System.out.println("Browser opened");
 					break;
 
 				case "enter url":
@@ -74,10 +81,14 @@ public class KeywordEngine {
 					} else {
 						driver.get(value);
 					}
+					System.out.println("Application launched");
+					
+					driver.findElement(By.xpath("//button[contains(text(),'Accept All')]")).click();
 					break;
 
 				case "quit":
 					driver.quit();
+					System.out.println("application cllosed");
 					break;
 				default:
 					break;
@@ -91,6 +102,7 @@ public class KeywordEngine {
 						element.sendKeys(value);
 					} else if (action.equalsIgnoreCase("click")) {
 						element.click();
+						System.out.println("Click performed");
 					} else if (action.equalsIgnoreCase("isDisplayed")) {
 						element.isDisplayed();
 					} else if (action.equalsIgnoreCase("getText")) {
@@ -123,6 +135,7 @@ public class KeywordEngine {
 						element.sendKeys(value);
 					} else if (action.equalsIgnoreCase("click")) {
 						element.click();
+						System.out.println("click performed");
 					} else if (action.equalsIgnoreCase("isDisplayed")) {
 						element.isDisplayed();
 					} else if (action.equalsIgnoreCase("getText")) {

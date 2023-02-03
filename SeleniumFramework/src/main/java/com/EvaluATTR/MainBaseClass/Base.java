@@ -23,15 +23,18 @@ public class Base {
 		if(browserName.equals("chrome"))
         {
                       WebDriverManager.chromedriver().setup();
+                     
                       //System.setProperty("webdriver.chrome.driver","/user/thejesh/chromedriver");
         //System.setProperty("webdriver.chrome.driver",readconfig.getChromePath());
-        driver = new ChromeDriver();
+       //ss driver = new ChromeDriver();
         if(prop.getProperty("headless").equals("yes")) {
         	ChromeOptions options= new ChromeOptions();
         	options.addArguments("--headless");
         	driver= new ChromeDriver(options);
+        	driver.manage().window().maximize();
         }else {
         	driver = new ChromeDriver();
+        	driver.manage().window().maximize();
         
         }
         
@@ -47,7 +50,7 @@ public class Base {
 	public Properties init_properties() {
 		prop=new Properties();
 		try {
-			FileInputStream ip= new FileInputStream("C:/Users/THEJET/eclipse-workspace/SeleniumFramework/src/main/java/com/EvaluATTR/Keyword/Config/config.properties");
+			FileInputStream ip= new FileInputStream("C:\\Users\\GANJIJ\\git\\SeleniumFramework\\SeleniumFramework\\src\\main\\java\\com\\EvaluATTR\\Config\\config.properties");
 		prop.load(ip);
 		
 		} catch (FileNotFoundException e) {
